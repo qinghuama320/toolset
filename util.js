@@ -80,6 +80,11 @@ function arrayEqual(list1, list2, itemEquelFun) {
     }
 }
 
+// 在list1中但不在list2中的集合，list1-list2差集
+function CalcDiffSet(list1, list2) {  
+    return list1.filter(it1 => !list2.some(it2 => it1.symbol === it2.symbol && it1.market === it2.market));
+}
+
 // 去除toFixed后保留的末尾的0，是数据看起来更简短
 function toShortFixed(num, prec = 0) {
     let numstr = (+num).toFixed(prec);
