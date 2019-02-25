@@ -12,6 +12,23 @@ function getUrlParams() {
     return ret;
 }
 
+// 生成url参数
+function formUrlParam(option) {
+    if (!option) {
+        return '';
+    }
+
+    let urlParam = '';
+    for (let item in option) {
+        if (Object.prototype.hasOwnProperty(option, item)) {
+            urlParam = urlParam ? urlParam + '&' : urlParam + '?';
+            urlParam += `${item}=${option[item]}`;
+        }
+    }
+
+    return urlParam;
+}
+
 // 将数字转换成逗号千分位，并保留至prec精度
 function toThousandString(numstr, prec = 2) {
     let num = +numstr;
