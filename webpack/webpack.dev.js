@@ -77,20 +77,14 @@ module.exports = webpackMerge(webpackComm, {
         proxy: {
             // http接口的转发代理
             '/v1/': {
-                target: 'https://api.biss.com/',
-                changeOrigin: true,
-                secure: false,
-            },
-            // 行情接口的代理，但是好像不起作用
-            '/api/v1/biss.api.v1.push.PushChannel/': {
-                target: 'https://www.biss.com/',
+                target: 'https://api.xxxx.com/',
                 changeOrigin: true,
                 secure: false,
             },
         },
 
         after() {
-            opn('http://localhost:' + this.port + '?BISS_API_HOST=10.2.0.5');
+            opn('http://localhost:' + this.port);
         },
     },
 });
